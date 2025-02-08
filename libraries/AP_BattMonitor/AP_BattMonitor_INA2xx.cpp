@@ -357,7 +357,7 @@ void AP_BattMonitor_INA2XX::timer(void)
             return;
         }
         voltage = (bus_voltage24>>4) * voltage_LSB;
-        current = (current24>>4) * current_LSB;
+        current = ((current24>>4) * current_LSB) - 30.8;
         temperature = temp16 * INA_228_TEMP_C_LSB;
         break;
     }
